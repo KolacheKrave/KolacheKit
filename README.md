@@ -40,7 +40,7 @@ Now follow the next section:
 Open terminal (black box with dollar sign on it in dock), copy and paste (with ctrl+shift+v as because the terminal has specific keybinds) the script below:
 
 ```bash
-sudo sh -c "$(curl -LJO https://raw.githubusercontent.com/KolacheKrave/KolacheKit/main/install_kkit.sh)"
+sudo sh -c "$(curl -s https://raw.githubusercontent.com/KolacheKrave/KolacheKit/main/install_kkit.sh)"
 ```
 
 Hit enter and give it the password when prompted then hit enter again.

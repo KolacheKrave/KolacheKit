@@ -16,9 +16,9 @@ apt update
 
 notify-send "Downloading Packages..." "Don't shut off anything!"
 
-apt install linux-image-surface linux-headers-surface libwacom-surface iptsd
+apt install -y linux-image-surface linux-headers-surface libwacom-surface iptsd
 
-apt install linux-surface-secureboot-mok
+apt install -y linux-surface-secureboot-mok
 
 cd /home/"$(ls /home)"/Desktop
 

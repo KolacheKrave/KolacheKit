@@ -50,7 +50,7 @@ It will configure things for a second, and text will fly on the screen, when it'
 Then open terminal when it boots and execute the script below (it will require your password again):
 
 ```bash
-sudo update-grub
+sudo update-grub; dconf write /org/cinnamon/sounds/notification-enabled "false"
 ```
 
 KolacheKit.AppImage should be on the desktop now, just tripple tap it to open it up, or reboot the machine as it will open on boot!

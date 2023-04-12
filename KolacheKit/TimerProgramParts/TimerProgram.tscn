@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://bihylvn7mu0qj"]
+
+[ext_resource type="PackedScene" uid="uid://6mga2cwp2h2u" path="res://TimerProgramParts/TimerTopBar.tscn" id="1"]
+[ext_resource type="Script" path="res://TimerProgramParts/TimerProgram.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://jpn8dote5r37" path="res://TimerIntro.mp3" id="3"]
+[ext_resource type="AudioStream" uid="uid://bgr7hfdi7ygfd" path="res://TimerLoop.mp3" id="4"]
+[ext_resource type="PackedScene" uid="uid://b6xg0o1vhunoi" path="res://TimerProgramParts/TimerSet.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dpu5qgeiv8v5i" path="res://TimerProgramParts/LocationSet.tscn" id="6"]
+
+[node name="TimerProgram" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.172549, 0.172549, 0.172549, 1)
+script = ExtResource("2")
+metadata/_edit_vertical_guides_ = [1140.0, 1041.0]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = -9.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerTopBar" parent="VBoxContainer" instance=ExtResource("1")]
+layout_mode = 2
+
+[node name="HBoxContainer" parent="VBoxContainer/TimerTopBar" index="0"]
+layout_mode = 1
+anchors_preset = 15
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="HFlowContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AlarmIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3")
+volume_db = 4.5
+
+[node name="AlarmLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
+volume_db = 5.0
+
+[node name="TimerSet" parent="." instance=ExtResource("5")]
+position = Vector2i(300, 72)
+visible = false
+
+[node name="LocationSet" parent="." instance=ExtResource("6")]
+position = Vector2i(400, 72)
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/TimerTopBar/HBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/TimerTopBar/HBoxContainer/NewButton" to="." method="_on_NewButton_pressed"]
+[connection signal="finished" from="AlarmIntro" to="." method="_on_AlarmIntro_finished"]
+
+[editable path="VBoxContainer/TimerTopBar"]

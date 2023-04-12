@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6xg0o1vhunoi"]
+
+[ext_resource type="Theme" uid="uid://bdeo7pu4bmfqy" path="res://Themes/KolacheTheme.tres" id="1"]
+[ext_resource type="Script" path="res://TimerProgramParts/TimerSet.gd" id="2"]
+
+[node name="TimerSet" type="Popup"]
+size = Vector2i(600, 500)
+visible = true
+script = ExtResource("2")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = -8.0
+
+[node name="TimeInput" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="Panel/HBoxContainer/TimeInput"]
+layout_mode = 2
+placeholder_text = "Hours:Minutes"
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/TimeInput"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Center" type="CenterContainer" parent="Panel/HBoxContainer/TimeInput"]
+layout_mode = 2
+
+[node name="Numpad" type="GridContainer" parent="Panel/HBoxContainer/TimeInput/Center"]
+layout_mode = 2
+columns = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer/TimeInput"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer/TimeInput"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="VSeparator" type="VSeparator" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="SaveLoadInput" type="VBoxContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="LineEdit" parent="Panel/HBoxContainer/SaveLoadInput"]
+layout_mode = 2
+placeholder_text = "Timer Title"
+alignment = 1
+
+[node name="Presets" type="ItemList" parent="Panel/HBoxContainer/SaveLoadInput"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SavePreset" type="Button" parent="Panel/HBoxContainer/SaveLoadInput"]
+layout_mode = 2
+text = "Save Preset!"
+
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
+[connection signal="popup_hide" from="." to="." method="_on_TimerSet_popup_hide"]
+[connection signal="focus_entered" from="Panel/HBoxContainer/TimeInput/LineEdit" to="." method="_on_LineEdit_focus_entered"]
+[connection signal="pressed" from="Panel/HBoxContainer/TimeInput/Button" to="." method="_on_Button_pressed"]
+[connection signal="text_submitted" from="Panel/HBoxContainer/SaveLoadInput/Title" to="." method="_on_Title_text_entered"]
+[connection signal="item_selected" from="Panel/HBoxContainer/SaveLoadInput/Presets" to="." method="_on_Presets_item_selected"]
+[connection signal="pressed" from="Panel/HBoxContainer/SaveLoadInput/SavePreset" to="." method="_on_SavePreset_pressed"]

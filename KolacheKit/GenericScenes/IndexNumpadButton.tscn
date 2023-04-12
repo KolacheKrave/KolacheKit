@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/KolacheTheme.tres" type="Theme" id=1]
+[ext_resource path="res://GenericScenes/IndexNumpadButton.gd" type="Script" id=2]
+[ext_resource path="res://Themes/IndexButtonPressed.tres" type="StyleBox" id=3]
+
+[node name="indexNumButt" type="Button" groups=["index_number_group"]]
+offset_right = 50.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 50, 50 )
+theme = ExtResource( 1 )
+theme_type_variation = "index_button"
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+toggle_mode = true
+text = "10"
+script = ExtResource( 2 )

@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://ud1hyysla2dl"]
+
+[ext_resource type="Script" path="res://LabelProgramParts/AddABunch.gd" id="2"]
+[ext_resource type="Theme" uid="uid://bdeo7pu4bmfqy" path="res://Themes/KolacheTheme.tres" id="3"]
+
+[node name="AddABunch" type="Popup"]
+size = Vector2i(300, 400)
+visible = true
+script = ExtResource("2")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("3")
+
+[node name="AmountInput" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/AmountInput"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Error (No button sinc)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel/AmountInput"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3")
+placeholder_text = "Add-a-bunch-omatic!"
+editable = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/AmountInput"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Center" type="CenterContainer" parent="Panel/AmountInput"]
+layout_mode = 2
+
+[node name="Numpad" type="GridContainer" parent="Panel/AmountInput/Center"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/AmountInput"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AddButton" type="Button" parent="Panel/AmountInput"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add!"
+
+[connection signal="about_to_popup" from="." to="." method="_on_AddABunch_about_to_show"]
+[connection signal="pressed" from="Panel/AmountInput/AddButton" to="." method="_on_AddButton_pressed"]

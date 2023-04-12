@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://6mga2cwp2h2u"]
+
+[ext_resource type="Theme" uid="uid://bdeo7pu4bmfqy" path="res://Themes/KolacheTheme.tres" id="1"]
+
+[node name="TimerTopBar" type="ColorRect"]
+custom_minimum_size = Vector2(50, 75)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.125
+offset_bottom = -75.0
+color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+
+[node name="BackButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("1")
+text = "< Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NewButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("1")
+text = "New Timer"

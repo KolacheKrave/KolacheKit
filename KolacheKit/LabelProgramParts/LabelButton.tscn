@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cllq33mebamn4"]
+
+[ext_resource type="Script" path="res://LabelProgramParts/LabelButton.gd" id="1"]
+[ext_resource type="Theme" uid="uid://bdeo7pu4bmfqy" path="res://Themes/KolacheTheme.tres" id="2"]
+
+[node name="LabelButton" type="Button"]
+custom_minimum_size = Vector2(100, 75)
+offset_right = 100.0
+offset_bottom = 75.0
+theme = ExtResource("2")
+theme_override_font_sizes/font_size = 23
+text = "Button Err"
+clip_text = true
+script = ExtResource("1")
+
+[node name="Amount" type="Label" parent="."]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.5
+offset_top = -28.0
+offset_right = 12.5
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0.576471, 0.576471, 0.576471, 1)
+theme_override_font_sizes/font_size = 24
+text = "x10"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="button_down" from="." to="." method="_on_LabelButton_button_down"]
+[connection signal="button_up" from="." to="." method="_on_LabelButton_button_up"]
+[connection signal="pressed" from="." to="." method="_on_LabelButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

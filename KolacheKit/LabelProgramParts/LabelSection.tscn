@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://csyig207vigos"]
+
+[ext_resource type="Script" path="res://LabelProgramParts/LabelSection.gd" id="1"]
+
+[node name="LableSection" type="ColorRect"]
+custom_minimum_size = Vector2(0, 75)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0.172549, 0.172549, 0.172549, 1)
+script = ExtResource("1")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = -22.0
+offset_bottom = -7.0
+scale = Vector2(1, 1.00984)
+
+[node name="GridContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

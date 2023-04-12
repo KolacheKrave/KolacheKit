@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0gj3cncxo3ae"]
+
+[ext_resource type="Theme" uid="uid://bdeo7pu4bmfqy" path="res://Themes/KolacheTheme.tres" id="1"]
+[ext_resource type="Script" path="res://LabelProgramParts/StickersToPrint.gd" id="2"]
+
+[node name="StickersToPrint" type="ColorRect"]
+process_mode = 2
+show_behind_parent = true
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+rotation = 1.5708
+pivot_offset = Vector2(100, 100)
+script = ExtResource("2")
+
+[node name="Sectioner" type="VBoxContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.73483
+offset_top = 6.31992
+offset_right = -8.26517
+offset_bottom = -6.68008
+
+[node name="Label1" type="Label" parent="Sectioner"]
+process_mode = 2
+show_behind_parent = true
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 47
+text = "Error"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Sectioner"]
+show_behind_parent = true
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 47
+text = "Error"
+horizontal_alignment = 1

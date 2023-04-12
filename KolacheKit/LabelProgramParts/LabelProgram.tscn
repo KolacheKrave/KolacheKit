@@ -1,0 +1,202 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwm3kfeela4ll"]
+
+[ext_resource type="PackedScene" path="res://LabelProgramParts/LabelTopBar.tscn" id="1"]
+[ext_resource type="Script" path="res://LabelProgramParts/LabelListBar.gd" id="2"]
+[ext_resource type="Script" path="res://LabelProgramParts/LabelProgram.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://d0u0svtkwik77" path="res://LabelProgramParts/QuickEditPopup.tscn" id="4"]
+[ext_resource type="Script" path="res://LabelProgramParts/ButtonToList.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://b0gj3cncxo3ae" path="res://LabelProgramParts/StickersToPrint.tscn" id="6"]
+[ext_resource type="AudioStream" uid="uid://dv0bum7ysby4p" path="res://Stone.ogg" id="7"]
+[ext_resource type="Theme" uid="uid://bdeo7pu4bmfqy" path="res://Themes/KolacheTheme.tres" id="8"]
+[ext_resource type="PackedScene" uid="uid://ud1hyysla2dl" path="res://LabelProgramParts/AddABunch.tscn" id="9"]
+[ext_resource type="Script" path="res://LabelProgramParts/Scroller.gd" id="10"]
+
+[node name="LabelProgram" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+scale = Vector2(1.00861, 1.01101)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.172549, 0.172549, 0.172549, 1)
+script = ExtResource("3")
+metadata/_edit_vertical_guides_ = [1151.0, 965.0]
+metadata/_edit_horizontal_guides_ = [76.0]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+offset_left = 9.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TopBar" parent="VBoxContainer" instance=ExtResource("1")]
+custom_minimum_size = Vector2(1100, 60)
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="VBoxContainer" parent="VBoxContainer/TopBar" index="0"]
+layout_mode = 1
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" parent="VBoxContainer/TopBar/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="BackButton" parent="VBoxContainer/TopBar/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="QuickEditButton" parent="VBoxContainer/TopBar/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="MarginContainer" parent="VBoxContainer/TopBar/VBoxContainer/HBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="IndexToggle" parent="VBoxContainer/TopBar/VBoxContainer/HBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="HSeparator" parent="VBoxContainer/TopBar/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LabelListBar" type="Control" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+script = ExtResource("2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LabelListBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -22.0
+
+[node name="SortButton" type="Button" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = ExtResource("8")
+text = "Sort"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+tabs_visible = false
+
+[node name="Scroller" type="VScrollBar" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/TabContainer"]
+layout_mode = 2
+script = ExtResource("10")
+
+[node name="LabelList" type="ItemList" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/TabContainer/Scroller"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("8")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/TabContainer/Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NumPad" type="GridContainer" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/TabContainer/Panel/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="Clear" type="Button" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("8")
+text = "Clear"
+
+[node name="Delete" type="Button" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("8")
+text = "Delete"
+
+[node name="DelTimer" type="Timer" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer/Delete"]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
+[node name="PrintButton" type="Button" parent="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8")
+text = "Print"
+
+[node name="QuickEditPopup" parent="." instance=ExtResource("4")]
+position = Vector2i(400, 76)
+visible = false
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(200, 200)
+render_target_update_mode = 3
+
+[node name="StickersToPrint" parent="SubViewport" instance=ExtResource("6")]
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7")
+
+[node name="AddABunch" parent="." instance=ExtResource("9")]
+unique_name_in_owner = true
+position = Vector2i(400, 76)
+visible = false
+
+[connection signal="quick_edit_start" from="VBoxContainer/TopBar" to="." method="_on_TopBar_quick_edit_start"]
+[connection signal="pressed" from="VBoxContainer/TopBar/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="toggled" from="VBoxContainer/TopBar/VBoxContainer/HBoxContainer/IndexToggle" to="." method="_on_IndexToggle_toggled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/SortButton" to="VBoxContainer/HBoxContainer/LabelListBar" method="_on_SortButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer/Clear" to="VBoxContainer/HBoxContainer/LabelListBar" method="_on_Clear_pressed"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer/Delete" to="VBoxContainer/HBoxContainer/LabelListBar" method="_on_Delete_button_down"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer/Delete" to="VBoxContainer/HBoxContainer/LabelListBar" method="_on_Delete_button_up"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer/Delete" to="VBoxContainer/HBoxContainer/LabelListBar" method="_on_Delete_pressed"]
+[connection signal="timeout" from="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/HBoxContainer/Delete/DelTimer" to="VBoxContainer/HBoxContainer/LabelListBar" method="_on_DelTimer_timeout"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LabelListBar/VBoxContainer/PrintButton" to="." method="_on_PrintButton_pressed"]
+[connection signal="focus_entered" from="QuickEditPopup" to="." method="_on_QuickEditPopup_focus_entered"]
+[connection signal="popup_hide" from="QuickEditPopup" to="." method="_on_QuickEditPopup_popup_hide"]
+
+[editable path="VBoxContainer/TopBar"]
+[editable path="QuickEditPopup"]

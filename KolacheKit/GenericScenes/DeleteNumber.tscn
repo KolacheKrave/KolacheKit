@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Themes/KolacheTheme.tres" type="Theme" id=1]
+[ext_resource path="res://delete_icon.png" type="Texture2D" id=2]
+
+[node name="DeleteNumber" type="Button"]
+offset_right = 50.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 50, 50 )
+theme = ExtResource( 1 )
+text = " "
+icon = ExtResource( 2 )
+icon_alignment = 1
+expand_icon = true

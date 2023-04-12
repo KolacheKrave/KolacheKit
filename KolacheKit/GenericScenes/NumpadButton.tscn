@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Themes/KolacheTheme.tres" type="Theme" id=1]
+
+[node name="numButt" type="Button"]
+offset_right = 50.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 50, 50 )
+theme = ExtResource( 1 )
+text = "0"

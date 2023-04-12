@@ -24,7 +24,7 @@ cd /home/"$(ls /home)"/Desktop
 
 curl -LJO https://github.com/KolacheKrave/KolacheKit/releases/download/Main-Release/KolacheKit.AppImage
 
-chmod +x KolacheKit.AppImage
+chmod 777 KolacheKit.AppImage
 
 clear
 

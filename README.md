@@ -19,7 +19,7 @@ Plug in the usb hub and plug in the usb stick and keyboard
 
 Shut off the surface tablet completely
 
-Hold the volume down key, and quickly press the power button, keep holding the volume down key until a black screen with a white box and a menu pop up that says "Start Linux Mint", hit enter
+Hold the volume up button and quickly press the power button on the tablet, this should open a white screen, disable secure boot and the TPM chip, then go to boot order and move usb to the top and reboot
 
 If all steps were followed you should see something that resembles a windows desktop with a dvd icon in the top left corner that says "install linux mint"
 
